@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Random Key</title>
+</head>
+<body>
+  <h1>مفتاحك العشوائي:</h1>
+  <p id="key">جارٍ التحميل...</p>
+
+  <script>
+    fetch('key.json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('key').textContent = data.key;
+      })
+      .catch(error => {
+        document.getElementById('key').textContent = 'حدث خطأ';
+        console.error(error);
+      });
+  </script>
+</body>
+</html>
